@@ -27,8 +27,50 @@ public class Main {
     );
 
     public static void main(String[] args) {
-        //Update this
+
+        List<Customer> customers = new ArrayList<>();
+        List<Integer> customerIds = new ArrayList<>();
+
+        for (String[] data : customerData){
+            int customerId = Integer.parseInt(data[0]);
+
+            if (!customerIds.contains(customerId)){
+
+                Customer customer = new Customer();
+                customer.setId(customerId);
+                customer.setName(data[1]);
+
+                AccountRecord accountRecord = new AccountRecord();
+                accountRecord.setCharge(Integer.parseInt(data[2]));
+                accountRecord.setChargeDate(data[3]);
+
+                customer.addCharge(accountRecord);
+
+                customers.add(customer);
+                customerIds.add(customerId);
+                continue;
+            }
+
+            for (Customer customer : customers){
+                if (customer.getId() == customerId){
+                    AccountRecord accountRecord = new AccountRecord();
+                    accountRecord.setCharge(Integer.parseInt(data[2]));
+                    accountRecord.setChargeDate(data[3]);
+
+                    customer.addCharge(accountRecord);
+
+                    break;
+
+                }
+
+            }
+
+        }
+
         System.out.println("Positive accounts:");
+        customers.stream().filter(customer -> customer.getBalance() >= 0).forEach(System.out::println);
+
         System.out.println("Negative accounts:");
+        customers.stream().filter(customer -> customer.getBalance() < 0).forEach(System.out::println);
     }
 }

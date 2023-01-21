@@ -8,6 +8,7 @@ public class Customer {
     private String name;
     private List<AccountRecord> charges = new ArrayList<>();
 
+    // add constructor?
     public int getId() {
         return id;
     }
@@ -25,17 +26,26 @@ public class Customer {
     }
 
     public int getBalance() {
-        //update this
-        return 0;
+        int balance = 0;
+
+        for (AccountRecord charge : charges){
+            balance += charge.getCharge();
+        }
+
+        return balance;
     }
 
     public List<AccountRecord> getCharges() {
         return charges;
     }
 
+    // setter method to add an AccountRecord charge to the charges list
+    public void addCharge(AccountRecord charge){
+        charges.add(charge);
+    }
+
     @Override
     public String toString() {
-        //update this
-        return "Update me";
+        return "Customer ID: " + id + ", Name: " + name + ", Customer Balance: " + getBalance();
     }
 }

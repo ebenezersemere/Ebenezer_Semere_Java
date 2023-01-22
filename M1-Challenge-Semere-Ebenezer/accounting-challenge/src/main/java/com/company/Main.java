@@ -29,10 +29,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Create a list of customers
-        List<Customer> customers = new ArrayList<>();
-
-        // Create a map of customers for O(1) access whether they are in the list or not
+        // Create a map of {ID : Customer} pairs
         HashMap<Integer, Customer> customerMap = new HashMap<>();
 
         // Iterate through the customer data
@@ -44,25 +41,24 @@ public class Main {
             account.setCharge(Integer.parseInt(data[2]));
             account.setChargeDate(data[3]);
 
-            // If the customer is not in the map, add them to the list and map
+            // If the customer is not in the map, add them
             if (!customerMap.containsKey(customerId)){
                 Customer customer = new Customer();
                 customer.setName(data[1]);
                 customer.setId(customerId);
 
                 customerMap.put(customerId, customer);
-                customers.add(customerMap.get(customerId));
             }
 
-            // Add the charge to the customer
+            // Add the charge to the customer's account
             customerMap.get(customerId).addCharge(account);
         }
 
         // Print the customers with positive and negative balances
         System.out.println("Positive accounts:");
-        customers.stream().filter(customer -> customer.getBalance() >= 0).forEach(System.out::println);
+        customerMap.values().stream().filter(customer -> customer.getBalance() >= 0).forEach(System.out::println);
 
         System.out.println("Negative accounts:");
-        customers.stream().filter(customer -> customer.getBalance() < 0).forEach(System.out::println);
+        customerMap.values().stream().filter(customer -> customer.getBalance() < 0).forEach(System.out::println);
     }
 }

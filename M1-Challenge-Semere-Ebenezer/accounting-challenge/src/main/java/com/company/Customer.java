@@ -8,7 +8,6 @@ public class Customer {
     private String name;
     private List<AccountRecord> charges = new ArrayList<>();
 
-    // add constructor?
     public int getId() {
         return id;
     }
@@ -25,6 +24,7 @@ public class Customer {
         this.name = name;
     }
 
+    // method to calculate the balance of the customer
     public int getBalance() {
         int balance = 0;
 

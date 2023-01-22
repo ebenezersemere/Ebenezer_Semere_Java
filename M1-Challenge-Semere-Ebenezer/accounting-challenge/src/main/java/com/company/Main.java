@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -28,45 +29,36 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Create a list of customers
         List<Customer> customers = new ArrayList<>();
-        List<Integer> customerIds = new ArrayList<>();
 
+        // Create a map of customers for O(1) access whether they are in the list or not
+        HashMap<Integer, Customer> customerMap = new HashMap<>();
+
+        // Iterate through the customer data
         for (String[] data : customerData){
             int customerId = Integer.parseInt(data[0]);
 
-            if (!customerIds.contains(customerId)){
+            // Create a new account record
+            AccountRecord account = new AccountRecord();
+            account.setCharge(Integer.parseInt(data[2]));
+            account.setChargeDate(data[3]);
 
+            // If the customer is not in the map, add them to the list and map
+            if (!customerMap.containsKey(customerId)){
                 Customer customer = new Customer();
-                customer.setId(customerId);
                 customer.setName(data[1]);
+                customer.setId(customerId);
 
-                AccountRecord accountRecord = new AccountRecord();
-                accountRecord.setCharge(Integer.parseInt(data[2]));
-                accountRecord.setChargeDate(data[3]);
-
-                customer.addCharge(accountRecord);
-
-                customers.add(customer);
-                customerIds.add(customerId);
-                continue;
+                customerMap.put(customerId, customer);
+                customers.add(customerMap.get(customerId));
             }
 
-            for (Customer customer : customers){
-                if (customer.getId() == customerId){
-                    AccountRecord accountRecord = new AccountRecord();
-                    accountRecord.setCharge(Integer.parseInt(data[2]));
-                    accountRecord.setChargeDate(data[3]);
-
-                    customer.addCharge(accountRecord);
-
-                    break;
-
-                }
-
-            }
-
+            // Add the charge to the customer
+            customerMap.get(customerId).addCharge(account);
         }
 
+        // Print the customers with positive and negative balances
         System.out.println("Positive accounts:");
         customers.stream().filter(customer -> customer.getBalance() >= 0).forEach(System.out::println);
 

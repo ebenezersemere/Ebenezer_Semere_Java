@@ -9,6 +9,7 @@ public class CustomerTest {
 
     @Test
     public void shouldCalculateBalance(){
+
         // Regular Case
         Customer customer = new Customer();
         customer.setId(1);

@@ -8,6 +8,7 @@ class ChatterbookApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

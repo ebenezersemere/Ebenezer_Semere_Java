@@ -12,7 +12,9 @@ import java.util.List;
 public class ChatterbookController {
     private List<User> userList;
 
+    // constructor
     public ChatterbookController() {
+        // hard-coded data
         User luis = new User("Luis");
         User sue = new User("Sue");
         User timothy = new User("Timothy");
@@ -25,6 +27,7 @@ public class ChatterbookController {
         User carol = new User("Carol");
         User carl = new User("Carl");
 
+        // hard-coded data
         luis.setChatterPosts(Arrays.asList(new ChatterPost("Hey! This is my first post!"), new ChatterPost("Anybody want to be friends?")));
         sue.setChatterPosts(Arrays.asList(new ChatterPost("I'm bored"), new ChatterPost("Who wants to hang?")));
         timothy.setChatterPosts(Arrays.asList(new ChatterPost("My life is awesome!"), new ChatterPost("Click here to buy my vegan shakes!")));
@@ -40,12 +43,14 @@ public class ChatterbookController {
         userList = Arrays.asList(luis, sue, timothy, george, arturo, mariella, paolo, tri, jane, carol, carl);
     }
 
+    // GET all users
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<User> getUsers(){
         return userList;
     }
 
+    // GET all users from username
     @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public User getUser(@PathVariable String username){
@@ -57,6 +62,7 @@ public class ChatterbookController {
         return null;
     }
 
+    // GET all posts from username
     @RequestMapping(value = "/users/{username}/posts", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public List<ChatterPost> getPosts(@PathVariable String username){

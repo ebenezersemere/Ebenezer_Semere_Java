@@ -36,7 +36,7 @@ public class Customer {
     }
 
     public List<AccountRecord> getCharges() {
-        return charges;
+        return new ArrayList<>(charges);
     }
 
     // setter method to add an AccountRecord charge to the charges list

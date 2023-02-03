@@ -51,7 +51,7 @@ public class Main {
             }
 
             // Add the charge to the customer's account
-            customerMap.get(customerId).addCharge(account);
+            customerMap.get(customerId).getCharges().add(account);
         }
 
         // Print the customers with positive and negative balances

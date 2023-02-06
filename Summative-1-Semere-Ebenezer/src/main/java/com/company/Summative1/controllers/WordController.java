@@ -15,26 +15,25 @@ import java.util.Random;
 @RestController
 public class WordController {
     private static int index = 0;
-
     private static List<Definition> wordList = new ArrayList<>(Arrays.asList(
-            new Definition(index++, "Venerate", "To regard with great respect and admiration."),
-            new Definition(index++, "Quixotic", "Extravagantly chivalrous or romantic."),
-            new Definition(index++, "Serendipity", "The occurrence of fortunate events by chance."),
-            new Definition(index++, "Sycophant", "A person who tries to please someone in order to gain an advantage."),
-            new Definition(index++, "Surreptitious", "Kept secret, especially because it would not be approved of."),
-            new Definition(index++, "Tantamount", "Equivalent in value or significance."),
-            new Definition(index++, "Tawdry", "Cheap and showy but of poor quality."),
-            new Definition(index++, "Tirade", "A long, angry speech of criticism or accusation."),
-            new Definition(index++, "Tome", "A large and heavy book."),
-            new Definition(index++, "Effervescence", "The production of bubbles; liveliness and excitement.")
+            new Definition(++index, "Venerate", "To regard with great respect and admiration."),
+            new Definition(++index, "Quixotic", "Extravagantly chivalrous or romantic."),
+            new Definition(++index, "Serendipity", "The occurrence of fortunate events by chance."),
+            new Definition(++index, "Sycophant", "A person who tries to please someone in order to gain an advantage."),
+            new Definition(++index, "Surreptitious", "Kept secret, especially because it would not be approved of."),
+            new Definition(++index, "Tantamount", "Equivalent in value or significance."),
+            new Definition(++index, "Tawdry", "Cheap and showy but of poor quality."),
+            new Definition(++index, "Tirade", "A long, angry speech of criticism or accusation."),
+            new Definition(++index, "Tome", "A large and heavy book."),
+            new Definition(++index, "Effervescence", "The production of bubbles; liveliness and excitement.")
     ));
 
     @RequestMapping(value = "/word", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public String getDefinition() {
+    public Definition getDefinition() {
         Random random = new Random();
         int randomIndex = random.nextInt(wordList.size());
-        return wordList.get(randomIndex).getDefinition();
+        return wordList.get(randomIndex);
     }
 
 }

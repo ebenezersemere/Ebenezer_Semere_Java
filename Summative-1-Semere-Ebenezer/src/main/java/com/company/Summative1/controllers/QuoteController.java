@@ -20,16 +20,16 @@ public class QuoteController {
 
     // in-memory quote list
     List<Quote> quoteList = new ArrayList<>(Arrays.asList(
-            new Quote(++index, "The purpose of our lives is to be happy.", "Dalai Lama"),
-            new Quote(++index, "Life is what happens when you're busy making other plans.", "John Lennon"),
-            new Quote(++index, "Get busy living or get busy dying.", "Stephen King"),
-            new Quote(++index, "You only live once, but if you do it right, once is enough.", "Mae West"),
-            new Quote(++index, "The only way to do great work is to love what you do.", "Steve Jobs"),
-            new Quote(++index, "If you want to live a happy life, tie it to a goal, not to people or things.", "Albert Einstein"),
-            new Quote(++index, "Never let the fear of striking out keep you from playing the game.", "Babe Ruth"),
-            new Quote(++index, "Money and success don't change people; they merely amplify what is already there.", "Will Smith"),
-            new Quote(++index, "The two most important days in your life are the day you are born and the day you find out why.", "Mark Twain"),
-            new Quote(++index, "Whatever you can do, or dream you can, begin it. Boldness has genius, power and magic in it.", "Johann Wolfgang von Goethe")
+            new Quote(++index, "Dalai Lama", "The purpose of our lives is to be happy."),
+            new Quote(++index, "John Lennon", "Life is what happens when you're busy making other plans."),
+            new Quote(++index, "Stephen King", "Get busy living or get busy dying."),
+            new Quote(++index, "Mae West", "You only live once, but if you do it right, once is enough."),
+            new Quote(++index, "Steve Jobs", "The only way to do great work is to love what you do."),
+            new Quote(++index, "Albert Einstein", "If you want to live a happy life, tie it to a goal, not to people or things."),
+            new Quote(++index, "Babe Ruth", "Never let the fear of striking out keep you from playing the game."),
+            new Quote(++index, "Will Smith", "Money and success don't change people; they merely amplify what is already there."),
+            new Quote(++index, "Mark Twain", "The two most important days in your life are the day you are born and the day you find out why."),
+            new Quote(++index, "Johann Wolfgang von Goethe", "Whatever you can do, or dream you can, begin it. Boldness has genius, power and magic in it.")
     ));
 
     // GET /quote route

@@ -23,19 +23,15 @@ public class Magic8BallControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private ObjectMapper mapper = new ObjectMapper();
-
     @Test
     public void ShouldReturnNewQuestionOnValidPostRequest() throws Exception {
-        Answer answer = new Answer(1, "Will I get a job?", "Yes");
-
-        String inputJson = mapper.writeValueAsString(answer);
+        Answer answer = new Answer(0, "", "");
+        String inputJson = new ObjectMapper().writeValueAsString(answer);
 
         mockMvc.perform(post("/magic")
                         .content(inputJson)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isCreated());
-
     }
 }

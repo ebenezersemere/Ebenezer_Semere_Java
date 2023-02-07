@@ -20,8 +20,6 @@ public class QuoteControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-//    private ObjectMapper mapper = new ObjectMapper();
-
     @Test
     public void ShouldGetRandomQuote() throws Exception {
         mockMvc.perform(get("/quote"))

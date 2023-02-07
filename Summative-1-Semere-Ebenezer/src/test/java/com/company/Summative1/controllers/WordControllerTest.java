@@ -19,13 +19,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class WordControllerTest {
 
     @Autowired
-    private MockMvc MockMvc;
-
-//    private ObjectMapper mapper = new ObjectMapper();
+    private MockMvc mockMvc;
 
     @Test
     public void ShouldReturnWord() throws Exception {
-        MockMvc.perform(get("/word"))
+        mockMvc.perform(get("/word"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

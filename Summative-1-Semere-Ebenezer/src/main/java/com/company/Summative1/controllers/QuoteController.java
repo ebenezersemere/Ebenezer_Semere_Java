@@ -15,7 +15,10 @@ import java.util.Random;
 
 @RestController
 public class QuoteController {
+    // database-mock index
     private static int index = 0;
+
+    // in-memory quote list
     List<Quote> quoteList = new ArrayList<>(Arrays.asList(
             new Quote(++index, "The purpose of our lives is to be happy.", "Dalai Lama"),
             new Quote(++index, "Life is what happens when you're busy making other plans.", "John Lennon"),
@@ -29,11 +32,14 @@ public class QuoteController {
             new Quote(++index, "Whatever you can do, or dream you can, begin it. Boldness has genius, power and magic in it.", "Johann Wolfgang von Goethe")
     ));
 
+    // GET /quote route
     @RequestMapping(value = "/quote", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Quote getQuote(){
+        // generate random quote
         Random random = new Random();
         int randomIndex = random.nextInt(quoteList.size());
+
         return quoteList.get(randomIndex);
     }
 

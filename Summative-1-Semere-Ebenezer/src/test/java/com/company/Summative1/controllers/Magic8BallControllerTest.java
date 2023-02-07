@@ -19,10 +19,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(Magic8BallController.class)
 public class Magic8BallControllerTest {
-
     @Autowired
     private MockMvc mockMvc;
 
+    // Test that a valid POST request returns a 201 status code
     @Test
     public void ShouldReturnNewQuestionOnValidPostRequest() throws Exception {
         Answer answer = new Answer(0, "", "");

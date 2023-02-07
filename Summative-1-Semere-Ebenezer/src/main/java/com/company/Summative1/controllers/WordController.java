@@ -14,7 +14,10 @@ import java.util.Random;
 
 @RestController
 public class WordController {
+    // database-mock index
     private static int index = 0;
+
+    // in-memory word list
     private static List<Definition> wordList = new ArrayList<>(Arrays.asList(
             new Definition(++index, "Venerate", "To regard with great respect and admiration."),
             new Definition(++index, "Quixotic", "Extravagantly chivalrous or romantic."),
@@ -28,11 +31,14 @@ public class WordController {
             new Definition(++index, "Effervescence", "The production of bubbles; liveliness and excitement.")
     ));
 
+    // GET /word route
     @RequestMapping(value = "/word", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public Definition getDefinition() {
+        // generate random word
         Random random = new Random();
         int randomIndex = random.nextInt(wordList.size());
+
         return wordList.get(randomIndex);
     }
 

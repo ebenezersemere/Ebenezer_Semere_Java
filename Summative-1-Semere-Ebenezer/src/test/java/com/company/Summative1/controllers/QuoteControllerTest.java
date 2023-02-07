@@ -20,6 +20,7 @@ public class QuoteControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    // Test that a valid GET request returns a 200 status code
     @Test
     public void ShouldGetRandomQuote() throws Exception {
         mockMvc.perform(get("/quote"))

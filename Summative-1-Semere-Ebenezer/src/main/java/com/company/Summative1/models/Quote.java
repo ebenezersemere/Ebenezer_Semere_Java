@@ -2,6 +2,7 @@ package com.company.Summative1.models;
 
 import java.util.Objects;
 
+// Quote class for Quote Controller
 public class Quote {
     private int id;
     private String author;

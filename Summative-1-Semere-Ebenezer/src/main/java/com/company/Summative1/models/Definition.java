@@ -2,6 +2,7 @@ package com.company.Summative1.models;
 
 import java.util.Objects;
 
+// Definition class for Word Controller
 public class Definition {
     private int id;
     private String word;

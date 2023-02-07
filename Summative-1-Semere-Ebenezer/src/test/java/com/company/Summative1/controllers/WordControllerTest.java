@@ -21,6 +21,7 @@ public class WordControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    // Test that a valid GET request returns a 200 status code
     @Test
     public void ShouldReturnWord() throws Exception {
         mockMvc.perform(get("/word"))

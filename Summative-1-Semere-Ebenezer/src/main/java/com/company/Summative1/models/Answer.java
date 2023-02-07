@@ -2,6 +2,7 @@ package com.company.Summative1.models;
 
 import java.util.Objects;
 
+// Answer class for Magic 8 Ball Controller
 public class Answer {
     private int id;
     private String question;

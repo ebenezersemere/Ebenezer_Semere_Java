@@ -20,7 +20,7 @@ public class Magic8BallController {
             "No", "My sources say no", "It is doubtful",
             "Try again", "It is not clear");
 
-    // GET /magic route
+    // POST /magic route
     @RequestMapping(value = "/magic", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Answer addQuestion(@RequestBody Answer question) {

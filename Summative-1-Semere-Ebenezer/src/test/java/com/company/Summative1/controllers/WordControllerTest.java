@@ -23,7 +23,7 @@ public class WordControllerTest {
 
     // Test that a valid GET request returns a 200 status code
     @Test
-    public void ShouldReturnWord() throws Exception {
+    public void ShouldGetRandomWord() throws Exception {
         mockMvc.perform(get("/word"))
                 .andDo(print())
                 .andExpect(status().isOk());

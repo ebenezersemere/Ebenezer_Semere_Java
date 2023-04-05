@@ -2,7 +2,7 @@
 
 ### Overview
 
-Starter code: [./starter](./starter)
+Starter code: [./starter](../challenge/starter)
 
 In this challenge, you will refactor the provided Record Store API to enforce authentication via OAuth.
 

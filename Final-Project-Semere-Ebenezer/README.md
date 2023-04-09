@@ -2,9 +2,10 @@
 
 Contributors
 
-    Ayoub Osman
-    Set Lynn
-    Michael Henry
+        Ayoub Osman
+        Set Lynn
+        Michael Henry
+        Ebenezer Semere
 
 ## Application Overview
 This group final project involves the creation of a full-stack application that includes the following:
